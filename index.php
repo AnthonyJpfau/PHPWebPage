@@ -21,7 +21,9 @@
 	?>
 	
 	</php require 'includes/header.php'; ?>
-	
+
+			<a href="new-article.php">Add new article</a>
+
 	
 			<?php if(empty($articles)): ?>
 				<p> No Articles found. =( </p>
@@ -30,9 +32,10 @@
 				<?php foreach($articles as $article): ?>
 				<li>
 					<article>
-						<h2><a href="article.php?id=<?= $article['id']; ?>"> <?= $article['title']; ?></a> </h2>
+						<h2><a href="article.php?id=<?= $article['id']; ?>"> <?=
+						 htmlspecialchars($article['title']); ?></a> </h2>
 						
-						<p>	<?= $article['content']; ?></p>
+						<p>	<?= htmlspecialchars($article['content']); ?></p>
 					</article>
 				</li>
 				<?php endforeach; ?>
